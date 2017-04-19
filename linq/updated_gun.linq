@@ -4,11 +4,14 @@
 
 void Main()
 {
+	bool updateIndex = false;
+	
 	var folderToName = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
 	{
 		{ "glock", "Glock" },
 		{ "ruger", "Ruger" },
 		{ "sig", "Sig Sauer" },
+		{ "sw", "Smith & Wesson" },
 	};
 
 	var gunToName = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -53,7 +56,7 @@ void Main()
 		
 		foreach (Gun gun in group.Value.OrderByDescending(x => x.Length))
 		{
-			string id = $"{group.Key.ToLower()}_{Path.GetFileNameWithoutExtension(gun.Path)}";
+			string id = $"{group.Key.ToLower()}_{Path.GetFileNameWithoutExtension(gun.Path).Replace("&", "").Replace(".", "")}";
 
 			list.Append($"\t\t\t<li>\r\n\t\t\t\t<input type=\"checkbox\" id=\"{id}\" class=\"chkGun\" data-show=\"img_{id}\" />\r\n\t\t\t\t<label for=\"{id}\">{gun.Name}</label>\r\n\t\t\t</li>\r\n");
 		}
@@ -65,8 +68,8 @@ void Main()
 	
 	foreach (Gun gun in allGuns.OrderByDescending(x => x.Length))
 	{
-		string id = $"{gun.Group.ToLower()}_{Path.GetFileNameWithoutExtension(gun.Path)}";
-		images.Append($"\t\t<img id=\"img_{id}\" class=\"gunImage\" src=\"./images/loading.gif\" data-src=\"{gun.Path}\" style=\"z-index: {1000 - gun.Length}\" />\r\n");
+		string id = $"{gun.Group.ToLower()}_{Path.GetFileNameWithoutExtension(gun.Path).Replace("&", "").Replace(".", "")}";
+		images.Append($"\t\t<img id=\"img_{id}\" class=\"gunImage\" src=\"./images/loading.gif\" data-src=\"{gun.Path.Replace("&", "&amp;")}\" style=\"z-index: {1000 - gun.Length}\" />\r\n");
 	}
 	
 	string beta = File.ReadAllText(@"C:\Users\Malvin\Documents\GitHub\nivlam.github.io\template.html")
@@ -74,6 +77,9 @@ void Main()
 		.Replace("{{IMAGES}}", images.ToString());
 		
 	File.WriteAllText(@"C:\Users\Malvin\Documents\GitHub\nivlam.github.io\beta.html", beta);
+	
+	if (updateIndex)
+		File.WriteAllText(@"C:\Users\Malvin\Documents\GitHub\nivlam.github.io\index.html", beta);
 	
 	Console.WriteLine("Done");
 }
