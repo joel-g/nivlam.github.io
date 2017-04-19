@@ -37,9 +37,19 @@
 			display: none;
 		}
 		#uncheckAll {
+			margin-top: 15px;
 			cursor: pointer;
 			color: #0000CD;
 			font-weight: bold;
+		}
+		.list-header {
+			cursor: pointer;
+		}
+		.list-header span {
+			margin-right: 6px;
+		}
+		.list-guns {
+			display: none;
 		}
 	</style>
 </head>
@@ -47,7 +57,6 @@
 <body>
 	<div id="list">
 {{LIST}}
-
 		<p id="uncheckAll">Uncheck all</p>
 	</div>
 	<div id="guns">
@@ -78,6 +87,18 @@
 						checkbox.trigger("change");
 					}
 				});
+			});
+			
+			$(".list-header").click(function() {
+				var header = $(this);
+				var list = header.next("ul");
+				
+				if (list.is(":visible"))
+					header.children("span").html("&#9656;");
+				else
+					header.children("span").html("&#9662;")
+					
+				list.slideToggle();
 			});
 		});
 	</script>
