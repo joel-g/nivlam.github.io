@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		body {
+			min-width: 1300px;
+			margin-top: 40px;
+			margin-left: 30px;
+		}
+		#list {
+			width: 220px;
+			float: left;
+		}
+		#list ul { 
+			list-style-type: none;	
+			padding-left: 0;
+		}
+		#guns {
+			float: left;
+			position: relative;
+			width: 973px;
+			height: 589px;
+			background: transparent url("./images/ruler.png") no-repeat top left;
+		}
+		.gunImage {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="list">
+{{LIST}}
+	</div>
+	<div id="guns">
+{{IMAGES}}
+	</div>
+
+	<script type="text/javascript">
+		$(function() {
+			$(".chkGun").click(function() {
+				var checkbox = $(this);
+				var img = $("#" + checkbox.attr("data-show"));
+				
+				if (img.attr("src") === "./images/loading.gif")
+					img.attr("src", img.attr("data-src"));
+	
+				if (checkbox.is(":checked"))
+					img.show();
+				else
+					img.hide();
+			});
+		});
+	</script>
+</body>
+
+</html>
