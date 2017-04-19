@@ -8,14 +8,16 @@
 
 	<style type="text/css">
 		body {
-			margin-top: 50px;
+			margin-top: 40px;
+			margin-left: 30px;
 		}
 		#list {
 			width: 220px;
 			float: left;
 		}
-		#list li { 
+		#list ul { 
 			list-style-type: none;	
+			padding-left: 0;
 		}
 		#guns {
 			float: left;
@@ -35,6 +37,7 @@
 
 <body>
 	<div id="list">
+		<p><strong>Sig Sauer</strong></p>
 		<ul>
 			<li>
 			  <input type="checkbox" id="sig_203_p320_fullsize" class="chkGun" data-show="img_sig_203_p320_fullsize" />
@@ -81,6 +84,17 @@
 			  <label for="sig_140_p238">P238</label>
 			</li>
 		</ul>
+		<p><strong>Ruger</strong></p>
+		<ul>
+			<li>
+			  <input type="checkbox" id="ruger_152_lc9s" class="chkGun" data-show="img_ruger_152_lc9s" />
+			  <label for="ruger_152_lc9s">LC9s</label>
+			</li>
+			<li>
+			  <input type="checkbox" id="ruger_131_lcpii" class="chkGun" data-show="img_ruger_131_lcpii" />
+			  <label for="ruger_131_lcpii">LCP II</label>
+			</li>
+		</ul>
 	</div>
 	<div id="guns">
 		<img id="img_sig_203_p320_fullsize" class="gunImage" src="./guns/sig/203_p320_fullsize.png" />
@@ -91,9 +105,11 @@
 		<img id="img_sig_180_p229_compact" class="gunImage" src="./guns/sig/180_p229_compact.png" />
 		<img id="img_sig_175_p225_compact" class="gunImage" src="./guns/sig/175_p225_compact.png" />
 		<img id="img_sig_168_p239_compact" class="gunImage" src="./guns/sig/168_p239_compact.png" />
+		<img id="img_ruger_152_lc9s" class="gunImage" src="./guns/ruger/152_lc9s.png" />
 		<img id="img_sig_150_p938" class="gunImage" src="./guns/sig/150_p938.png" />
 		<img id="img_sig_140_p290rs_subcompact" class="gunImage" src="./guns/sig/140_p290rs_subcompact.png" />
 		<img id="img_sig_140_p238" class="gunImage" src="./guns/sig/140_p238.png" />
+		<img id="img_ruger_131_lcpii" class="gunImage" src="./guns/ruger/131_lcpii.png" />
 	</div>
 
 	<script type="text/javascript">
