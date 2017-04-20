@@ -15,6 +15,14 @@
 			margin-top: 40px;
 			margin-left: 30px;
 		}
+		.link {
+			color: #0000CD;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		a {
+			text-decoration: none;
+		}
 		#list {
 			width: 220px;
 			float: left;
@@ -24,23 +32,21 @@
 			padding-left: 0;
 		}
 		#guns {
-			left: 221px;
-			position: fixed;
+			float: left;
+			position: relative;
 			width: 973px;
-			height: 589px;
+			/* height: 589px; */
+			height: 610px;
 			background: transparent url("./images/ruler.png") no-repeat top left;
 		}
-		.gunImage {
+		.gun-image {
 			position: absolute;
 			top: 15px;
 			right: 15px;
 			display: none;
 		}
 		#uncheckAll {
-			margin-top: 15px;
-			cursor: pointer;
-			color: #0000CD;
-			font-weight: bold;
+			margin-top: 30px;
 		}
 		.list-header {
 			cursor: pointer;
@@ -107,6 +113,48 @@
 			<li>
 				<input type="checkbox" id="glock_159_g43" class="chkGun" data-show="img_glock_159_g43" />
 				<label for="glock_159_g43">G43</label>
+			</li>
+		</ul>
+
+		<p class="list-header"><span>&#9656;</span><strong>Heckler & Koch</strong></p>
+
+		<ul class="list-guns"  >
+			<li>
+				<input type="checkbox" id="hk_187_vp9" class="chkGun" data-show="img_hk_187_vp9" />
+				<label for="hk_187_vp9">VP9</label>
+			</li>
+			<li>
+				<input type="checkbox" id="hk_174_p2000" class="chkGun" data-show="img_hk_174_p2000" />
+				<label for="hk_174_p2000">P2000</label>
+			</li>
+			<li>
+				<input type="checkbox" id="hk_163_p30sk" class="chkGun" data-show="img_hk_163_p30sk" />
+				<label for="hk_163_p30sk">P30SK</label>
+			</li>
+			<li>
+				<input type="checkbox" id="hk_162_p2000sk" class="chkGun" data-show="img_hk_162_p2000sk" />
+				<label for="hk_162_p2000sk">P2000SK</label>
+			</li>
+		</ul>
+
+		<p class="list-header"><span>&#9656;</span><strong>Kahr</strong></p>
+
+		<ul class="list-guns"  >
+			<li>
+				<input type="checkbox" id="kahr_150_cw9" class="chkGun" data-show="img_kahr_150_cw9" />
+				<label for="kahr_150_cw9">CW9</label>
+			</li>
+			<li>
+				<input type="checkbox" id="kahr_138_pm9" class="chkGun" data-show="img_kahr_138_pm9" />
+				<label for="kahr_138_pm9">PM9</label>
+			</li>
+			<li>
+				<input type="checkbox" id="kahr_126_cw380" class="chkGun" data-show="img_kahr_126_cw380" />
+				<label for="kahr_126_cw380">CW380</label>
+			</li>
+			<li>
+				<input type="checkbox" id="kahr_124_p380" class="chkGun" data-show="img_kahr_124_p380" />
+				<label for="kahr_124_p380">P380</label>
 			</li>
 		</ul>
 
@@ -184,6 +232,10 @@
 				<label for="springfield_211_xd_mod2_5_9">XD MOD.2 5" 9mm</label>
 			</li>
 			<li>
+				<input type="checkbox" id="springfield_193_xdm_4_9" class="chkGun" data-show="img_springfield_193_xdm_4_9" />
+				<label for="springfield_193_xdm_4_9">XD(M) 4.5" 9mm</label>
+			</li>
+			<li>
 				<input type="checkbox" id="springfield_186_xd_4_9" class="chkGun" data-show="img_springfield_186_xd_4_9" />
 				<label for="springfield_186_xd_4_9">XD 4" 9mm</label>
 			</li>
@@ -194,6 +246,14 @@
 			<li>
 				<input type="checkbox" id="springfield_178_xds_4_9" class="chkGun" data-show="img_springfield_178_xds_4_9" />
 				<label for="springfield_178_xds_4_9">XD-S 4" 9mm</label>
+			</li>
+			<li>
+				<input type="checkbox" id="springfield_173_xdm_3_full_9" class="chkGun" data-show="img_springfield_173_xdm_3_full_9" />
+				<label for="springfield_173_xdm_3_full_9">XD(M) 3.8" 9mm</label>
+			</li>
+			<li>
+				<input type="checkbox" id="springfield_172_xdm_3_9" class="chkGun" data-show="img_springfield_172_xdm_3_9" />
+				<label for="springfield_172_xdm_3_9">XD(M) 3.8" Compact 9mm</label>
 			</li>
 			<li>
 				<input type="checkbox" id="springfield_160_xds_3_9" class="chkGun" data-show="img_springfield_160_xds_3_9" />
@@ -243,49 +303,60 @@
 		</ul>
 
 
-		<p id="uncheckAll">Uncheck all</p>
+		<p id="uncheckAll" class="link">Uncheck all</p>
+		<p id="faq" class="link"><a href="./FAQ.html">FAQ</a></p>
 	</div>
 	<div id="guns">
-		<img id="img_cz_211_cz97_b" class="gunImage" src="./images/loading.gif" data-src="./guns/cz/211_cz97_b.png" style="z-index: 789" />
-		<img id="img_springfield_211_xd_5_9" class="gunImage" src="./images/loading.gif" data-src="./guns/springfield/211_xd_5_9.png" style="z-index: 789" />
-		<img id="img_springfield_211_xd_mod2_5_9" class="gunImage" src="./images/loading.gif" data-src="./guns/springfield/211_xd_mod2_5_9.png" style="z-index: 789" />
-		<img id="img_cz_207_cz75_sp01" class="gunImage" src="./images/loading.gif" data-src="./guns/cz/207_cz75_sp01.png" style="z-index: 793" />
-		<img id="img_cz_206_cz75b" class="gunImage" src="./images/loading.gif" data-src="./guns/cz/206_cz75b.png" style="z-index: 794" />
-		<img id="img_glock_204_g17" class="gunImage" src="./images/loading.gif" data-src="./guns/glock/204_g17.png" style="z-index: 796" />
-		<img id="img_sig_203_p320_fullsize" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/203_p320_fullsize.png" style="z-index: 797" />
-		<img id="img_sw_203_mp45" class="gunImage" src="./images/loading.gif" data-src="./guns/sw/203_m&amp;p45.png" style="z-index: 797" />
-		<img id="img_glock_202_g17_gen4" class="gunImage" src="./images/loading.gif" data-src="./guns/glock/202_g17_gen4.png" style="z-index: 798" />
-		<img id="img_sw_200_mp45_m20" class="gunImage" src="./images/loading.gif" data-src="./guns/sw/200_m&amp;p45_m2.0.png" style="z-index: 800" />
-		<img id="img_sig_196_p220_fullsize" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/196_p220_fullsize.png" style="z-index: 804" />
-		<img id="img_sig_196_p226_fullsize" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/196_p226_fullsize.png" style="z-index: 804" />
-		<img id="img_sig_196_p227_fullsize" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/196_p227_fullsize.png" style="z-index: 804" />
-		<img id="img_sw_193_mp9" class="gunImage" src="./images/loading.gif" data-src="./guns/sw/193_m&amp;p9.png" style="z-index: 807" />
-		<img id="img_sw_188_mp9_m20" class="gunImage" src="./images/loading.gif" data-src="./guns/sw/188_m&amp;p9_m2.0.png" style="z-index: 812" />
-		<img id="img_glock_187_g19" class="gunImage" src="./images/loading.gif" data-src="./guns/glock/187_g19.png" style="z-index: 813" />
-		<img id="img_springfield_186_xd_4_9" class="gunImage" src="./images/loading.gif" data-src="./guns/springfield/186_xd_4_9.png" style="z-index: 814" />
-		<img id="img_springfield_186_xd_mod2_4_9" class="gunImage" src="./images/loading.gif" data-src="./guns/springfield/186_xd_mod2_4_9.png" style="z-index: 814" />
-		<img id="img_cz_184_cz75_compact" class="gunImage" src="./images/loading.gif" data-src="./guns/cz/184_cz75_compact.png" style="z-index: 816" />
-		<img id="img_sig_183_p250_compact" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/183_p250_compact.png" style="z-index: 817" />
-		<img id="img_sig_180_p229_compact" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/180_p229_compact.png" style="z-index: 820" />
-		<img id="img_springfield_178_xds_4_9" class="gunImage" src="./images/loading.gif" data-src="./guns/springfield/178_xds_4_9.png" style="z-index: 822" />
-		<img id="img_glock_175_g29_gen4" class="gunImage" src="./images/loading.gif" data-src="./guns/glock/175_g29_gen4.png" style="z-index: 825" />
-		<img id="img_sig_175_p225_compact" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/175_p225_compact.png" style="z-index: 825" />
-		<img id="img_sw_170_mp9c" class="gunImage" src="./images/loading.gif" data-src="./guns/sw/170_m&amp;p9c.png" style="z-index: 830" />
-		<img id="img_sig_168_p239_compact" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/168_p239_compact.png" style="z-index: 832" />
-		<img id="img_cz_165_cz_2075_rami" class="gunImage" src="./images/loading.gif" data-src="./guns/cz/165_cz_2075_rami.png" style="z-index: 835" />
-		<img id="img_glock_165_g26" class="gunImage" src="./images/loading.gif" data-src="./guns/glock/165_g26.png" style="z-index: 835" />
-		<img id="img_springfield_160_xds_3_9" class="gunImage" src="./images/loading.gif" data-src="./guns/springfield/160_xds_3_9.png" style="z-index: 840" />
-		<img id="img_glock_159_g43" class="gunImage" src="./images/loading.gif" data-src="./guns/glock/159_g43.png" style="z-index: 841" />
-		<img id="img_springfield_159_xd_3_9" class="gunImage" src="./images/loading.gif" data-src="./guns/springfield/159_xd_3_9.png" style="z-index: 841" />
-		<img id="img_springfield_159_xd_mod2_3_9" class="gunImage" src="./images/loading.gif" data-src="./guns/springfield/159_xd_mod2_3_9.png" style="z-index: 841" />
-		<img id="img_sw_155_mp9_shield" class="gunImage" src="./images/loading.gif" data-src="./guns/sw/155_m&amp;p9_shield.png" style="z-index: 845" />
-		<img id="img_ruger_152_lc9s" class="gunImage" src="./images/loading.gif" data-src="./guns/ruger/152_lc9s.png" style="z-index: 848" />
-		<img id="img_sig_150_p938" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/150_p938.png" style="z-index: 850" />
-		<img id="img_sig_140_p238" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/140_p238.png" style="z-index: 860" />
-		<img id="img_sig_140_p290rs_subcompact" class="gunImage" src="./images/loading.gif" data-src="./guns/sig/140_p290rs_subcompact.png" style="z-index: 860" />
-		<img id="img_sw_135_mp_bodyguard" class="gunImage" src="./images/loading.gif" data-src="./guns/sw/135_m&amp;p_bodyguard.png" style="z-index: 865" />
-		<img id="img_ruger_131_lcpii" class="gunImage" src="./images/loading.gif" data-src="./guns/ruger/131_lcpii.png" style="z-index: 869" />
-
+		<img id="img_cz_211_cz97_b" class="gun-image" src="./images/loading.gif" data-src="./guns/cz/211_cz97_b.png" style="z-index: 789" />
+		<img id="img_springfield_211_xd_5_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/211_xd_5_9.png" style="z-index: 789" />
+		<img id="img_springfield_211_xd_mod2_5_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/211_xd_mod2_5_9.png" style="z-index: 789" />
+		<img id="img_cz_207_cz75_sp01" class="gun-image" src="./images/loading.gif" data-src="./guns/cz/207_cz75_sp01.png" style="z-index: 793" />
+		<img id="img_cz_206_cz75b" class="gun-image" src="./images/loading.gif" data-src="./guns/cz/206_cz75b.png" style="z-index: 794" />
+		<img id="img_glock_204_g17" class="gun-image" src="./images/loading.gif" data-src="./guns/glock/204_g17.png" style="z-index: 796" />
+		<img id="img_sig_203_p320_fullsize" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/203_p320_fullsize.png" style="z-index: 797" />
+		<img id="img_sw_203_mp45" class="gun-image" src="./images/loading.gif" data-src="./guns/sw/203_m&amp;p45.png" style="z-index: 797" />
+		<img id="img_glock_202_g17_gen4" class="gun-image" src="./images/loading.gif" data-src="./guns/glock/202_g17_gen4.png" style="z-index: 798" />
+		<img id="img_sw_200_mp45_m20" class="gun-image" src="./images/loading.gif" data-src="./guns/sw/200_m&amp;p45_m2.0.png" style="z-index: 800" />
+		<img id="img_sig_196_p220_fullsize" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/196_p220_fullsize.png" style="z-index: 804" />
+		<img id="img_sig_196_p226_fullsize" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/196_p226_fullsize.png" style="z-index: 804" />
+		<img id="img_sig_196_p227_fullsize" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/196_p227_fullsize.png" style="z-index: 804" />
+		<img id="img_springfield_193_xdm_4_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/193_xdm_4_9.png" style="z-index: 807" />
+		<img id="img_sw_193_mp9" class="gun-image" src="./images/loading.gif" data-src="./guns/sw/193_m&amp;p9.png" style="z-index: 807" />
+		<img id="img_sw_188_mp9_m20" class="gun-image" src="./images/loading.gif" data-src="./guns/sw/188_m&amp;p9_m2.0.png" style="z-index: 812" />
+		<img id="img_glock_187_g19" class="gun-image" src="./images/loading.gif" data-src="./guns/glock/187_g19.png" style="z-index: 813" />
+		<img id="img_hk_187_vp9" class="gun-image" src="./images/loading.gif" data-src="./guns/hk/187_vp9.png" style="z-index: 813" />
+		<img id="img_springfield_186_xd_4_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/186_xd_4_9.png" style="z-index: 814" />
+		<img id="img_springfield_186_xd_mod2_4_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/186_xd_mod2_4_9.png" style="z-index: 814" />
+		<img id="img_cz_184_cz75_compact" class="gun-image" src="./images/loading.gif" data-src="./guns/cz/184_cz75_compact.png" style="z-index: 816" />
+		<img id="img_sig_183_p250_compact" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/183_p250_compact.png" style="z-index: 817" />
+		<img id="img_sig_180_p229_compact" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/180_p229_compact.png" style="z-index: 820" />
+		<img id="img_springfield_178_xds_4_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/178_xds_4_9.png" style="z-index: 822" />
+		<img id="img_glock_175_g29_gen4" class="gun-image" src="./images/loading.gif" data-src="./guns/glock/175_g29_gen4.png" style="z-index: 825" />
+		<img id="img_sig_175_p225_compact" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/175_p225_compact.png" style="z-index: 825" />
+		<img id="img_hk_174_p2000" class="gun-image" src="./images/loading.gif" data-src="./guns/hk/174_p2000.png" style="z-index: 826" />
+		<img id="img_springfield_173_xdm_3_full_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/173_xdm_3_full_9.png" style="z-index: 827" />
+		<img id="img_springfield_172_xdm_3_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/172_xdm_3_9.png" style="z-index: 828" />
+		<img id="img_sw_170_mp9c" class="gun-image" src="./images/loading.gif" data-src="./guns/sw/170_m&amp;p9c.png" style="z-index: 830" />
+		<img id="img_sig_168_p239_compact" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/168_p239_compact.png" style="z-index: 832" />
+		<img id="img_cz_165_cz_2075_rami" class="gun-image" src="./images/loading.gif" data-src="./guns/cz/165_cz_2075_rami.png" style="z-index: 835" />
+		<img id="img_glock_165_g26" class="gun-image" src="./images/loading.gif" data-src="./guns/glock/165_g26.png" style="z-index: 835" />
+		<img id="img_hk_163_p30sk" class="gun-image" src="./images/loading.gif" data-src="./guns/hk/163_p30sk.png" style="z-index: 837" />
+		<img id="img_hk_162_p2000sk" class="gun-image" src="./images/loading.gif" data-src="./guns/hk/162_p2000sk.png" style="z-index: 838" />
+		<img id="img_springfield_160_xds_3_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/160_xds_3_9.png" style="z-index: 840" />
+		<img id="img_glock_159_g43" class="gun-image" src="./images/loading.gif" data-src="./guns/glock/159_g43.png" style="z-index: 841" />
+		<img id="img_springfield_159_xd_3_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/159_xd_3_9.png" style="z-index: 841" />
+		<img id="img_springfield_159_xd_mod2_3_9" class="gun-image" src="./images/loading.gif" data-src="./guns/springfield/159_xd_mod2_3_9.png" style="z-index: 841" />
+		<img id="img_sw_155_mp9_shield" class="gun-image" src="./images/loading.gif" data-src="./guns/sw/155_m&amp;p9_shield.png" style="z-index: 845" />
+		<img id="img_ruger_152_lc9s" class="gun-image" src="./images/loading.gif" data-src="./guns/ruger/152_lc9s.png" style="z-index: 848" />
+		<img id="img_kahr_150_cw9" class="gun-image" src="./images/loading.gif" data-src="./guns/kahr/150_cw9.png" style="z-index: 850" />
+		<img id="img_sig_150_p938" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/150_p938.png" style="z-index: 850" />
+		<img id="img_sig_140_p238" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/140_p238.png" style="z-index: 860" />
+		<img id="img_sig_140_p290rs_subcompact" class="gun-image" src="./images/loading.gif" data-src="./guns/sig/140_p290rs_subcompact.png" style="z-index: 860" />
+		<img id="img_kahr_138_pm9" class="gun-image" src="./images/loading.gif" data-src="./guns/kahr/138_pm9.png" style="z-index: 862" />
+		<img id="img_sw_135_mp_bodyguard" class="gun-image" src="./images/loading.gif" data-src="./guns/sw/135_m&amp;p_bodyguard.png" style="z-index: 865" />
+		<img id="img_ruger_131_lcpii" class="gun-image" src="./images/loading.gif" data-src="./guns/ruger/131_lcpii.png" style="z-index: 869" />
+		<img id="img_kahr_126_cw380" class="gun-image" src="./images/loading.gif" data-src="./guns/kahr/126_cw380.png" style="z-index: 874" />
+		<img id="img_kahr_124_p380" class="gun-image" src="./images/loading.gif" data-src="./guns/kahr/124_p380.png" style="z-index: 876" />
 	</div>
 
 	<script type="text/javascript">
