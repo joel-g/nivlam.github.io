@@ -18,6 +18,12 @@ void Main()
 	{
 		{ "lcpii", "LCP II" },
 		{ "lc9s", "LC9s" },
+		{ "sr9c", "SR9c" },
+		{ "sr40c", "SR40c" },
+		{ "9e", "9E" },
+		{ "sr9", "SR9" },
+		{ "sr40", "SR40" },
+		{ "sr45", "SR45" },
 		
 		{ "cz 2075 rami", "CZ 2075 RAMI" },
 		{ "cz75 compact", "CZ 75 Compact" },
@@ -111,7 +117,7 @@ void Main()
 	foreach (Gun gun in allGuns.OrderByDescending(x => x.Length))
 	{
 		string id = $"{gun.Group.ToLower()}_{Path.GetFileNameWithoutExtension(gun.Path).Replace("&", "").Replace(".", "")}";
-		images.Append($"\t\t<img id=\"img_{id}\" class=\"gunImage\" src=\"./images/loading.gif\" data-src=\"{gun.Path.Replace("&", "&amp;")}\" style=\"z-index: {1000 - gun.Length}\" />\r\n");
+		images.Append($"\t\t<img id=\"img_{id}\" class=\"gun-image\" src=\"./images/loading.gif\" data-src=\"{gun.Path.Replace("&", "&amp;")}\" style=\"z-index: {1000 - gun.Length}\" />\r\n");
 	}
 	
 	string beta = File.ReadAllText(@"C:\Users\Malvin\Documents\GitHub\nivlam.github.io\template.html")
