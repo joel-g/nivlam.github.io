@@ -4,20 +4,46 @@
 
 void Main()
 {
-	bool updateIndex = false;
-	
+	bool updateIndex = true;
+
 	var folderToName = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
 	{
-		{ "glock", "Glock" },
-		{ "ruger", "Ruger" },
 		{ "sig", "Sig Sauer" },
 		{ "sw", "Smith & Wesson" },
+		{ "cz", "CZ" },
+		{ "hk", "Heckler & Koch" },
 	};
 
 	var gunToName = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
 	{
 		{ "lcpii", "LCP II" },
 		{ "lc9s", "LC9s" },
+		
+		{ "cz 2075 rami", "CZ 2075 RAMI" },
+		{ "cz75 compact", "CZ 75 Compact" },
+		{ "cz75b", "CZ 75 B" },
+		{ "cz75 sp01", "CZ 75 SP-01" },
+		{ "cz97 b", "CZ 97 B" },
+
+		{ "xd 3 9", "XD 3\" 9mm" },
+		{ "xd 4 9", "XD 4\" 9mm" },
+		{ "xd 5 9", "XD 5\" 9mm" },
+		{ "xds 3 9", "XD-S 3.3\" 9mm" },
+		{ "xds 4 9", "XD-S 4\" 9mm" },
+		{ "xd mod2 3 9", "XD MOD.2 3\" 9mm" },
+		{ "xd mod2 4 9", "XD MOD.2 4\" 9mm" },
+		{ "xd mod2 5 9", "XD MOD.2 5\" 9mm" },
+		{ "xdm 4 9", "XD(M) 4.5\" 9mm" },
+		{ "xdm 3 9", "XD(M) 3.8\" Compact 9mm" },
+		{ "xdm 3 full 9", "XD(M) 3.8\" 9mm" },
+
+		{ "cw380", "CW380" },
+		{ "pm9", "PM9" },
+		{ "cw9", "CW9" },
+
+		{ "p2000sk", "P2000SK" },
+		{ "p30sk", "P30SK" },
+		{ "vp9", "VP9" },
 	};
 
 	TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
@@ -49,10 +75,26 @@ void Main()
 
 	StringBuilder list = new StringBuilder();
 	StringBuilder images = new StringBuilder();
+	bool first = true;
 	
 	foreach (var group in guns.OrderBy(x => x.Key))
 	{
-		list.Append($"\t\t<p><strong>{folderToName[group.Key]}</strong></p>\r\n\r\n\t\t<ul>\r\n");
+		string arrow = "&#9656;";
+		string display = "";
+		
+		if (first)
+		{
+			arrow = "&#9662;";
+			display = "style=\"display: block\"";
+			first = false;
+		}
+
+		string headerName = textInfo.ToTitleCase(group.Key);
+		
+		if (folderToName.ContainsKey(group.Key))
+			headerName = folderToName[group.Key];
+		
+		list.Append($"\t\t<p class=\"list-header\"><span>{arrow}</span><strong>{headerName}</strong></p>\r\n\r\n\t\t<ul class=\"list-guns\" {display} >\r\n");
 		
 		foreach (Gun gun in group.Value.OrderByDescending(x => x.Length))
 		{
